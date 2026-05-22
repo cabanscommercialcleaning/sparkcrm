@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CleanCRM — Your Cleaning Business HQ</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -891,7 +894,13 @@
             </div>
             <!-- Day labels -->
             <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;">
-              ${['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>`<div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">${d}</div>`).join('')}
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Su</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Mo</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Tu</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">We</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Th</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Fr</div>
+              <div style="text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:2px 0;">Sa</div>
             </div>
           </div>
           <div id="cal-grid" style="padding:0 12px 16px;"></div>
@@ -909,7 +918,13 @@
             <div style="padding:16px 18px 0;">
               <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text2);margin-bottom:10px;" id="cal-next-label">June 2026</div>
               <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;margin-bottom:4px;">
-                ${['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>`<div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">${d}</div>`).join('')}
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Su</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Mo</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Tu</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">We</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Th</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Fr</div>
+                <div style="text-align:center;font-size:9px;font-weight:700;color:var(--text2);">Sa</div>
               </div>
             </div>
             <div id="cal-next-grid" style="padding:0 10px 12px;"></div>
@@ -1923,10 +1938,24 @@
       </div>
       <div class="form-group"><label class="form-label">Type</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;" id="cmd-event-type-picker">
-          ${[['job','🧹','#2D6A4F'],['meeting','🤝','#4A90D9'],['deadline','⏰','#C1392B'],['personal','⭐','#C9A84C'],['followup','📞','#7B5EA7'],['other','📌','#6B6760']].map(([val,icon,col])=>`
-          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-${val}-lbl">
-            <input type="radio" name="cmd-event-type" value="${val}" style="display:none;" onchange="updateEventTypeLabels()"> ${icon} ${val.charAt(0).toUpperCase()+val.slice(1)}
-          </label>`).join('')}
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-job-lbl">
+            <input type="radio" name="cmd-event-type" value="job" style="display:none;" onchange="updateEventTypeLabels()"> 🧹 Job
+          </label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-meeting-lbl">
+            <input type="radio" name="cmd-event-type" value="meeting" style="display:none;" onchange="updateEventTypeLabels()"> 🤝 Meeting
+          </label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-deadline-lbl">
+            <input type="radio" name="cmd-event-type" value="deadline" style="display:none;" onchange="updateEventTypeLabels()"> ⏰ Deadline
+          </label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-personal-lbl">
+            <input type="radio" name="cmd-event-type" value="personal" style="display:none;" onchange="updateEventTypeLabels()"> ⭐ Personal
+          </label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-followup-lbl">
+            <input type="radio" name="cmd-event-type" value="followup" style="display:none;" onchange="updateEventTypeLabels()"> 📞 Followup
+          </label>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;padding:6px 12px;border-radius:8px;border:2px solid var(--border);font-size:13px;font-weight:600;transition:all 0.15s;" id="evtype-other-lbl">
+            <input type="radio" name="cmd-event-type" value="other" style="display:none;" onchange="updateEventTypeLabels()"> 📌 Other
+          </label>
         </div>
       </div>
       <div class="form-group"><label class="form-label">Notes</label><input class="form-input" id="cmd-event-notes" placeholder="Any details..."></div>
@@ -6876,119 +6905,6 @@ document.addEventListener('change', e => {
     } catch(e) {}
   }
 })();
-</script>
-</body>
-</html>
-
-function saveAllData() {
-  try {
-    const data = {
-      clients, jobs, invoices, leads, quotes,
-      transactions, visitLog, accountExpenses,
-      prospects, bizProfile, bizDocs, supplyItems, savedKits,
-      vehicleSettings, bizData, cmdData, bidSettings,
-      clientIdCounter, jobIdCounter, invoiceIdCounter,
-      leadIdCounter, quoteIdCounter, txIdCounter,
-      visitIdCounter, accExpIdCounter, prosIdCounter, cmdTaskId, cmdEventId,
-      bidAddonId, prosTagsTemp: [], bidAddons,
-    };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  } catch(e) {
-    console.warn('Save failed:', e);
-  }
-}
-
-function loadAllData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return false;
-    const data = JSON.parse(raw);
-
-    if(data.clients)        clients         = data.clients;
-    if(data.jobs)           jobs            = data.jobs;
-    if(data.invoices)       invoices        = data.invoices;
-    if(data.leads)          leads           = data.leads;
-    if(data.quotes)         quotes          = data.quotes;
-    if(data.transactions)   transactions    = data.transactions;
-    if(data.visitLog)       visitLog        = data.visitLog;
-    if(data.accountExpenses) accountExpenses = data.accountExpenses;
-    if(data.prospects)      prospects       = data.prospects;
-    if(data.bizProfile)     Object.assign(bizProfile, data.bizProfile);
-    if(data.bizDocs)        bizDocs         = data.bizDocs;
-    if(data.supplyItems)    supplyItems     = data.supplyItems;
-    if(data.savedKits)      savedKits       = data.savedKits;
-    if(data.vehicleSettings) Object.assign(vehicleSettings, data.vehicleSettings);
-    if(data.bizData)        Object.assign(bizData, data.bizData);
-    if(data.cmdData)        Object.assign(cmdData, data.cmdData);
-    if(data.bidSettings)    Object.assign(bidSettings, data.bidSettings);
-    if(data.bidAddons)      bidAddons       = data.bidAddons;
-
-    if(data.clientIdCounter)  clientIdCounter  = data.clientIdCounter;
-    if(data.jobIdCounter)     jobIdCounter     = data.jobIdCounter;
-    if(data.invoiceIdCounter) invoiceIdCounter = data.invoiceIdCounter;
-    if(data.leadIdCounter)    leadIdCounter    = data.leadIdCounter;
-    if(data.quoteIdCounter)   quoteIdCounter   = data.quoteIdCounter;
-    if(data.txIdCounter)      txIdCounter      = data.txIdCounter;
-    if(data.visitIdCounter)   visitIdCounter   = data.visitIdCounter;
-    if(data.accExpIdCounter)  accExpIdCounter  = data.accExpIdCounter;
-    if(data.prosIdCounter)    prosIdCounter    = data.prosIdCounter;
-    if(data.cmdTaskId)        cmdTaskId        = data.cmdTaskId;
-    if(data.cmdEventId)       cmdEventId       = data.cmdEventId;
-    if(data.bidAddonId)       bidAddonId       = data.bidAddonId;
-
-    return true;
-  } catch(e) {
-    console.warn('Load failed:', e);
-    return false;
-  }
-}
-
-// Auto-save after every user action — patch key mutating functions
-(function patchSave() {
-  const wrap = (fn) => function() { const r = fn.apply(this, arguments); saveAllData(); return r; };
-
-  // Patch functions that mutate data
-  const toWrap = [
-    'saveClient','addClient','deleteClient',
-    'addJob','markComplete','deleteJob',
-    'addInvoice','markPaid',
-    'addLead','moveLead','markLeadLost',
-    'addQuote','acceptQuote',
-    'addTransaction','deleteTx',
-    'logVisit','addAccountExpense',
-    'saveProspect','deleteProspect','quickUpdatePros','convertToLead',
-    'saveProfile',
-    'addSupplyRow','deleteSupplyItem','clearSupplyList','saveSupplyKit','loadKit',
-    'saveBackend','saveBidSettings','saveVehicleSettings',
-    'addTask','toggleTask','deleteTask','clearCompleted','addNoteBlock','saveEvent','deleteEvent',
-  ];
-  toWrap.forEach(name => {
-    if(typeof window[name] === 'function') window[name] = wrap(window[name]);
-  });
-})();
-
-// Also save on supply table edits (inline inputs)
-document.addEventListener('change', e => {
-  if(e.target.closest('#supply-table-body') || e.target.id?.startsWith('sup-')) saveAllData();
-});
-
-// Save cmd focus textarea on input
-document.addEventListener('input', e => {
-  if(e.target.id === 'cmd-focus') { cmdData.focus = e.target.value; saveAllData(); }
-});
-
-// ========== INIT ==========
-const _loaded = loadAllData();
-
-renderDashboard();
-renderSchedule();
-document.getElementById('exp-date').value = new Date().toISOString().split('T')[0];
-updateExpenseCategories();
-
-// Show a subtle indicator that data was restored
-if(_loaded) {
-  setTimeout(() => showToast('✦ Data restored from last session'), 600);
-}
 </script>
 </body>
 </html>
